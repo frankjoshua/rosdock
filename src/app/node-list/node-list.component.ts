@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-node-list',
@@ -10,14 +11,10 @@ import { Observable } from 'rxjs/Observable';
 export class NodeListComponent implements OnInit {
   nodesObservable: Observable<any[]>;
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private service: DataService) { }
 
   ngOnInit() {
-   this.nodesObservable = this.getNodes('/nodes');
-  }
-
-  getNodes(path): Observable<any[]> {
-    return this.db.list(path).valueChanges();
+   this.nodesObservable = this.service.getNodes();
   }
 
 }

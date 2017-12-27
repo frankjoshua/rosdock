@@ -1,3 +1,4 @@
+import { DataService } from './services/data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
@@ -33,7 +34,9 @@ import { NodeComponent } from './node/node.component';
     AngularFireAuthModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
