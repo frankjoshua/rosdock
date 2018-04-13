@@ -16,8 +16,9 @@ import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { HomeComponent } from './ros-config/home/home.component';
+import { RosConfigModule } from './ros-config/ros-config.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HomeComponent } from './home/home.component';
       { path: 'login', component: LoginComponent},
       { path: '', component: HomeComponent}
     ]),
-    AuthenticationModule
+    AuthenticationModule,
+    RosConfigModule
   ],
   providers: [
     AngularFireAuth,
