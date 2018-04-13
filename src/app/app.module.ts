@@ -1,39 +1,50 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule, AngularFireDatabaseProvider, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth, AngularFireAuthProvider } from 'angularfire2/auth';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 
 import { environment } from './../environments/environment';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { NodeListComponent } from './node-list/node-list.component';
-import { NodeComponent } from './node/node.component';
+
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     AppNavbarComponent,
-    NodeListComponent,
-    NodeComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    RouterModule.forRoot([
+      { path: 'login', component: LoginComponent},
+      { path: '', component: HomeComponent}
+    ]),
+    AuthenticationModule
   ],
-  providers: [],
+  providers: [
+    AngularFireAuth,
+    AngularFireDatabase
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
