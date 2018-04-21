@@ -1,11 +1,15 @@
+import { AngularFireDatabase } from 'angularfire2/database';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { DataService } from './data.service';
+import { FirebaseApp } from 'angularfire2';
 
-describe('DataService', () => {
+const mockAngularFireDataBase: any = {};
+
+describe('DataService', () => {  
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DataService]
+      providers: [DataService, { provide: AngularFireDatabase, useValue: mockAngularFireDataBase }]
     });
   });
 
