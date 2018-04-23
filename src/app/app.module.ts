@@ -20,13 +20,15 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { HomeComponent } from './ros-config/home/home.component';
 import { RosConfigModule } from './ros-config/ros-config.module';
+import { NodeEditorComponent } from './node-editor/node-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavbarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NodeEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { RosConfigModule } from './ros-config/ros-config.module';
   ],
   providers: [
     AngularFireAuth,
-    AngularFireDatabase
+    AngularFireDatabase,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

@@ -37,4 +37,9 @@ describe('ConfigFormComponent', () => {
     expect(compiled.querySelector('#inputName')).not.toEqual(null);
     //expect(compiled.querySelector('#inputName')).name.startsWith('name');
   }));
+
+  it('form should have a submit button', async(() => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('#submit')).not.toEqual(null);
+  }));
 });
