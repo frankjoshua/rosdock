@@ -1,16 +1,21 @@
+import { ConfigFormComponent } from './config-form/config-form.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        AppNavbarComponent
+        AppNavbarComponent,
+        ConfigFormComponent
       ],
       imports: [
+        FormsModule,
+        ReactiveFormsModule,
         RouterTestingModule.withRoutes([])
       ]
     }).compileComponents();

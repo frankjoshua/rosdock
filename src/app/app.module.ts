@@ -1,7 +1,9 @@
+import { HomeComponent } from './home/home.component';
+import { ConfigFormComponent } from './config-form/config-form.component';
 import { DataService } from './services/data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder }   from '@angular/forms';
 import { AuthenticationModule } from './authentication/authentication.module';
 
 import { AngularFireModule } from 'angularfire2';
@@ -18,8 +20,6 @@ import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
-import { HomeComponent } from './ros-config/home/home.component';
-import { RosConfigModule } from './ros-config/ros-config.module';
 import { NodeEditorComponent } from './node-editor/node-editor.component';
 
 @NgModule({
@@ -28,7 +28,8 @@ import { NodeEditorComponent } from './node-editor/node-editor.component';
     AppNavbarComponent,
     LoginComponent,
     HomeComponent,
-    NodeEditorComponent
+    NodeEditorComponent,
+    ConfigFormComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +43,7 @@ import { NodeEditorComponent } from './node-editor/node-editor.component';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
       { path: '', component: HomeComponent}
-    ]),
-    AuthenticationModule,
-    RosConfigModule
+    ])
   ],
   providers: [
     AngularFireAuth,

@@ -1,14 +1,20 @@
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConfigFormComponent } from './config-form.component';
+import { DataService } from '../services/data.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('ConfigFormComponent', () => {
   let component: ConfigFormComponent;
   let fixture: ComponentFixture<ConfigFormComponent>;
+  const mockDataService: any = {};
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfigFormComponent ]
+      declarations: [ ConfigFormComponent ],
+      imports: [FormsModule, ReactiveFormsModule],
+      providers: [{provide: DataService, useValue: mockDataService}]
     })
     .compileComponents();
   }));

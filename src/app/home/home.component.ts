@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigFormComponent } from '../config-form/config-form.component';
 
 @Component({
   selector: 'app-home',
