@@ -1,2 +1,7 @@
-<pre>{{ text }}</pre>
-<div ace-editor [(text)]="text" style="min-height: 200px; width:100%; overflow: auto;"></div>
+<pre>{{ debug }}</pre>
+<div ace-editor 
+[(text)]="debug" 
+(textChanged)="onChange($event)" 
+[durationBeforeCallback]="100"
+style="min-height: 300px; width:600px; overflow: auto;">
+</div>
