@@ -4,11 +4,24 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ConfigFormComponent } from './config-form.component';
 import { DataService } from '../services/data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireObject } from 'angularfire2/database';
 
 describe('ConfigFormComponent', () => {
   let component: ConfigFormComponent;
   let fixture: ComponentFixture<ConfigFormComponent>;
-  const mockDataService: any = {};
+  const mockDataService: any = {
+    createNode() {
+      return {
+        valueChanges(){
+          return {
+            subscribe(){
+              
+            }
+          }
+        }
+      };
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

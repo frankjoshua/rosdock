@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { NodeEditorComponent } from './node-editor/node-editor.component';
+import { AceEditorModule } from 'ng2-ace-editor';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { NodeEditorComponent } from './node-editor/node-editor.component';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
       { path: '', component: HomeComponent}
-    ])
+    ]),
+    AceEditorModule
   ],
   providers: [
     AngularFireAuth,
