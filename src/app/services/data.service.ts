@@ -1,4 +1,3 @@
-import { ComposeBlock } from './../model/composeblock';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
@@ -12,12 +11,12 @@ export class DataService {
     return this.db.list('/nodes').valueChanges();
   }
 
-  createNode(): AngularFireObject<ComposeBlock> {
-    const adKey = this.db.list('/ads').push(new ComposeBlock()).key;
+  createNode(): AngularFireObject<string> {
+    const adKey = this.db.list('/ads').push("").key;
     return this.db.object('/ads/' + adKey);
   }
 
-  updateNode(node: AngularFireObject<ComposeBlock>, data: ComposeBlock) {
+  updateNode(node: AngularFireObject<string>, data: string) {
     return node.update(data);
   }
 }

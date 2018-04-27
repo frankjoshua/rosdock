@@ -1,13 +1,2 @@
-<pre>{{ block | json }}</pre>
-<pre>{{ keys | json }}</pre>
 <pre>{{ text }}</pre>
-<form [formGroup]="nodeForm" novalidate>
-  <div *ngFor="let key of keys">
-    <div>
-      {{ key }}:
-      <input formControlName="{{key}}" type="text" (change)="saveNode()">
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-</form>
 <div ace-editor [(text)]="text" style="min-height: 200px; width:100%; overflow: auto;"></div>
