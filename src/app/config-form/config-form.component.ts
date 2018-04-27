@@ -11,15 +11,17 @@ import { AngularFireObject } from 'angularfire2/database';
 export class ConfigFormComponent implements OnInit {
 
   node: AngularFireObject<ComposeBlock>;
-  block: ComposeBlock;
+  block: ComposeBlock = new ComposeBlock();
   debug: string = "";
 
   constructor(private dataService: DataService) { 
-    this.node = dataService.createNode();
+    this.node = dataService.getNode("MY_NODE_KEY");
     //Listen for node changes
     this.node.valueChanges().subscribe(node => {
-      this.debug = node.code;
-      this.block = node;
+      if(node){
+        this.debug = node.code;
+        this.block = node;
+      }
     });
   }
 

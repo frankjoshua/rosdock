@@ -17,6 +17,10 @@ export class DataService {
     return this.db.object('/ads/' + adKey);
   }
 
+  getNode(key: string): AngularFireObject<ComposeBlock> {
+    return this.db.object('/ads/' + key);
+  }
+
   updateNode(node: AngularFireObject<ComposeBlock>, data: ComposeBlock) {
     return node.update(data);
   }
