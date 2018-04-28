@@ -1,14 +1,14 @@
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfigFormComponent } from './config-form.component';
+import { CodeblockComponent } from './codeblock.component';
 import { DataService } from '../services/data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireObject } from 'angularfire2/database';
 
 describe('ConfigFormComponent', () => {
-  let component: ConfigFormComponent;
-  let fixture: ComponentFixture<ConfigFormComponent>;
+  let component: CodeblockComponent;
+  let fixture: ComponentFixture<CodeblockComponent>;
   const mockDataService: any = {
     createNode() {
       return {
@@ -25,7 +25,7 @@ describe('ConfigFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfigFormComponent ],
+      declarations: [ CodeblockComponent ],
       imports: [FormsModule, ReactiveFormsModule],
       providers: [{provide: DataService, useValue: mockDataService}]
     })
@@ -33,7 +33,7 @@ describe('ConfigFormComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfigFormComponent);
+    fixture = TestBed.createComponent(CodeblockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -43,14 +43,14 @@ describe('ConfigFormComponent', () => {
   });
 
   it('should have a form', async(() => {
-    const fixture = TestBed.createComponent(ConfigFormComponent);
+    const fixture = TestBed.createComponent(CodeblockComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('form')).not.toEqual(null);
   }));
 
   it('form should have a name input', async(() => {
-    const fixture = TestBed.createComponent(ConfigFormComponent);
+    const fixture = TestBed.createComponent(CodeblockComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('#inputName')).not.toEqual(null);

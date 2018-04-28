@@ -1,8 +1,8 @@
 import { HomeComponent } from './home/home.component';
-import { ConfigFormComponent } from './config-form/config-form.component';
+import { CodeblockComponent } from './codeblock/codeblock.component';
 import { DataService } from './services/data.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormBuilder }   from '@angular/forms';
 import { AuthenticationModule } from './authentication/authentication.module';
 
@@ -20,8 +20,8 @@ import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
-import { NodeEditorComponent } from './node-editor/node-editor.component';
 import { AceEditorModule } from 'ng2-ace-editor';
+import { CodeblockListComponent } from './codeblock-list/codeblock-list.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +29,8 @@ import { AceEditorModule } from 'ng2-ace-editor';
     AppNavbarComponent,
     LoginComponent,
     HomeComponent,
-    NodeEditorComponent,
-    ConfigFormComponent
+    CodeblockComponent,
+    CodeblockListComponent
   ],
   imports: [
     BrowserModule,
@@ -42,10 +42,12 @@ import { AceEditorModule } from 'ng2-ace-editor';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
+      { path: 'codeblock/:key', component: CodeblockComponent},
       { path: 'login', component: LoginComponent},
       { path: '', component: HomeComponent}
     ]),
-    AceEditorModule
+    AceEditorModule,
+    AuthenticationModule
   ],
   providers: [
     AngularFireAuth,

@@ -1,27 +1,31 @@
-import { ComposeBlock } from './../model/composeblock';
+import { CodeBlock } from './../model/codeblock';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
+
+const NODE_PATH: string = '/nodes';
 
 @Injectable()
 export class DataService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getNodes(): Observable<any> {
-    return this.db.list('/nodes').valueChanges();
+  getCodeblocks(): Observable<any> {
+    return this.db.list(NODE_PATH).valueChanges();
   }
 
-  createNode(): AngularFireObject<ComposeBlock> {
-    const adKey = this.db.list('/ads').push(new ComposeBlock()).key;
-    return this.db.object('/ads/' + adKey);
+  createCodeblock(key: string): AngularFireObject<CodeBlock> {
+    let codeBlock = new CodeBlock();
+    codeBlock.key = key;
+    this.db.list(NODE_PATH).push(codeBlock);
+    return this.db.object(NODE_PATH + '/' + codeBlock.key);
   }
 
-  getNode(key: string): AngularFireObject<ComposeBlock> {
-    return this.db.object('/ads/' + key);
+  getCodeblock(key: string): AngularFireObject<CodeBlock> {
+    return this.db.object(NODE_PATH + '/' + key);
   }
 
-  updateNode(node: AngularFireObject<ComposeBlock>, data: ComposeBlock) {
+  updateCodeblock(node: AngularFireObject<CodeBlock>, data: CodeBlock) {
     return node.update(data);
   }
 }

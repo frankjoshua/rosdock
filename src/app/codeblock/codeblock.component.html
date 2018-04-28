@@ -1,6 +1,7 @@
-<pre>{{ debug }}</pre>
+
+Name: <input [ngModel]="block.name" (ngModelChange)="block.name = $event" (change)="onChange()"/>
 <div ace-editor 
-[(text)]="debug" 
+[(text)]="block.code" 
 (textChanged)="onChange($event)" 
 [durationBeforeCallback]="100"
 style="min-height: 300px; width:600px; overflow: auto;">
