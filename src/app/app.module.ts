@@ -22,6 +22,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { CodeblockListComponent } from './codeblock-list/codeblock-list.component';
+import { ComposeComponent } from './compose/compose.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CodeblockListComponent } from './codeblock-list/codeblock-list.componen
     LoginComponent,
     HomeComponent,
     CodeblockComponent,
-    CodeblockListComponent
+    CodeblockListComponent,
+    ComposeComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { CodeblockListComponent } from './codeblock-list/codeblock-list.componen
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
+      { path: 'compose', component: ComposeComponent}
       { path: 'codeblock/:key', component: CodeblockComponent},
       { path: 'login', component: LoginComponent},
       { path: '', component: HomeComponent}

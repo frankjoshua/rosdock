@@ -1,3 +1,4 @@
+import { CodeBlock } from './../model/codeblock';
 import { DataService } from './../services/data.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class CodeblockListComponent implements OnInit {
 
   codeBlockList: any;
-  
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -20,4 +21,7 @@ export class CodeblockListComponent implements OnInit {
     )
   }
 
+  addCodeBlock(codeBlock: CodeBlock) {
+    this.dataService.addCodeBlockToRobot(codeBlock, "MY_ROBOT");
+  }
 }
