@@ -16,7 +16,7 @@ const ACTIVE_ROBOT = "activeRobot";
 @Injectable()
 export class DataService {
 
-  activeRobot: string = "NOT_SET";
+  activeRobot: string;
 
   constructor(private db: AngularFireDatabase) { 
     this.getPreference(ACTIVE_ROBOT).subscribe(pref => {

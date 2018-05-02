@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div class="container">
   <div *ngFor="let codeBlock of codeBlockList">
     <div class="row">
-      <div class="col-8">
-          <h4>{{ codeBlock.name }}</h4>
+      <div class="col-6">
+          <h5>{{ codeBlock.name }}</h5>
           <!-- <pre><code>{{ codeBlock.code }}</code></pre> -->
       </div> 
-      <div class="col">
+      <div class="col-3">
           <a routerLink="/codeblock/{{ codeBlock.key }}" class="btn btn-primary">Edit</a>
           <a (click)="addCodeBlock(codeBlock)" class="btn btn-primary">Add</a>
       </div> 

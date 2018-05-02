@@ -1,11 +1,24 @@
-<app-compose></app-compose>
-<div class="container">
-    <h4>Code Blocks for {{ dataService.activeRobot }}</h4>
-    <app-codeblock-list></app-codeblock-list>
-<a routerLink="/codeblock/{{ uuid }}" class="btn btn-primary">New Codeblock</a>
+
+<div *ngIf="dataService.activeRobot" class="container-fluid">
+      <div class="row">
+          <div class="col-5">
+              <div class="container">
+                  <app-robot-list></app-robot-list> Press enter to add Robot.
+              </div>
+              <br>
+              <div class="container">
+                <h4>Code Blocks for {{ dataService.activeRobot }}</h4>
+                <app-codeblock-list></app-codeblock-list>
+                <a routerLink="/codeblock/{{ uuid }}" class="btn btn-primary">New Codeblock</a>
+              </div>
+          </div>
+          <div class="col-7">
+              <app-compose></app-compose>
+          </div>
+      </div>
 </div>
 
-<div class="container">
-    <app-robot-list></app-robot-list>
-    <a routerLink="/robot/{{ uuid }}" class="btn btn-primary">New Robot</a>
-</div>
+
+
+
+
