@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div *ngFor="let robot of robots">
+      <div class="row">
+        <div class="col-8">
+          <app-robot name="{{robot.name}}"></app-robot>
+          <div (click)="activateRobot(robot.name)" class="btn btn-primary">Select</div>
+        </div> 
+      </div>
+    </div>
+</div>
+<input #userInput (keyup.enter)="createNewRobot(userInput.value)">
