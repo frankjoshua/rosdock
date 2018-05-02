@@ -23,6 +23,8 @@ import { LoginComponent } from './authentication/login/login.component';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { CodeblockListComponent } from './codeblock-list/codeblock-list.component';
 import { ComposeComponent } from './compose/compose.component';
+import { RobotListComponent } from './robot-list/robot-list.component';
+import { RobotComponent } from './robot/robot.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ComposeComponent } from './compose/compose.component';
     HomeComponent,
     CodeblockComponent,
     CodeblockListComponent,
-    ComposeComponent
+    ComposeComponent,
+    RobotListComponent,
+    RobotComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { ComposeComponent } from './compose/compose.component';
     AngularFireAuthModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'compose', component: ComposeComponent}
+      { path: 'robot/:key', component: RobotComponent},
+      { path: 'robots', component: RobotListComponent},
+      { path: 'compose', component: ComposeComponent},
       { path: 'codeblock/:key', component: CodeblockComponent},
       { path: 'login', component: LoginComponent},
       { path: '', component: HomeComponent}

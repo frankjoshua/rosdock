@@ -1,5 +1,5 @@
 
-Name: <input [ngModel]="block.name" (ngModelChange)="block.name = $event" (change)="onChange()"/>
+Name: <input [ngModel]="block.name" (ngModelChange)="block.name = $event" (change)="onChange(null)"/>
 <div ace-editor 
 [(text)]="block.code" 
 (textChanged)="onChange($event)" 

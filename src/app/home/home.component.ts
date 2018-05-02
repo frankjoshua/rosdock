@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { v4 as uuid } from 'uuid';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { v4 as uuid } from 'uuid';
 export class HomeComponent implements OnInit {
 
   uuid: string;
-  constructor() { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
     this.uuid = uuid();

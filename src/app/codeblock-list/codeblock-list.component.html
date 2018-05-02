@@ -3,11 +3,10 @@
     <div class="row">
       <div class="col-8">
           <h4>{{ codeBlock.name }}</h4>
-          <pre><code>{{ codeBlock.code }}</code></pre>
+          <!-- <pre><code>{{ codeBlock.code }}</code></pre> -->
       </div> 
       <div class="col">
           <a routerLink="/codeblock/{{ codeBlock.key }}" class="btn btn-primary">Edit</a>
-          <br>
           <a (click)="addCodeBlock(codeBlock)" class="btn btn-primary">Add</a>
       </div> 
     </div>

@@ -22,6 +22,6 @@ export class CodeblockListComponent implements OnInit {
   }
 
   addCodeBlock(codeBlock: CodeBlock) {
-    this.dataService.addCodeBlockToRobot(codeBlock, "MY_ROBOT");
+    this.dataService.addCodeBlockToRobot(codeBlock);
   }
 }
